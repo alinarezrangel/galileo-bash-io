@@ -8,9 +8,42 @@
 		<link rel="stylesheet" href="http://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.4.0/css/font-awesome.min.css" type="text/css"/>
 	</head>
 	<body>
-		<h1>En trabajo</h1>
-		<p>
-			Esta página esta en trabajo.
-		</p>
+		<header class="w3-container w3-theme w3-padding block header">
+			<h1 class="title w3-padding-16 w3-center">Galileo BASH IO</h1>
+		</header>
+		<nav class="navigation w3-topnav w3-theme-d1">
+			<a href="index.html">
+				Hogar
+			</a>
+			<a href="about.html">
+				Acerca de
+			</a>
+			<a href="doc.html">
+				Documentación
+			</a>
+			<a href="guide.html">
+				Guias
+			</a>
+		</nav>
+		<main class="w3-main w3-container maincontent mainsection w3-theme-light">
+			<section class="w3-card-2">
+				<h2>Programa con BASH</h2>
+				<p>
+					La API de BASH IO te permite programar usando BASH o SHELL de una
+					forma facil e intuitiva.
+				</p>
+				<div class="codesample w3-code">
+					<code class="bashHigh">
+						pinMode.sh 0 in pullup<br>
+						pinMode.sh 1 out strong<br>
+						while [ true ]<br>
+						&nbsp;&nbsp;do<br>
+						&nbsp;&nbsp;&nbsp;&nbsp;a=$(digitalRead.sh 0)<br>
+						&nbsp;&nbsp;&nbsp;&nbsp;digitalWrite.sh 1 "$a"<br>
+						done<br>
+					</code>
+				</div>
+			</section>
+		</main>
 	</body>
 </html>

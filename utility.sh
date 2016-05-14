@@ -1,7 +1,20 @@
 #!/bin/bash
 # encode: utf-8
 
-# Por Alejandro Linarez Rangel
+#############################################################################
+# MIT License
+#
+# Copyright (c) 2016 Alejandro Linarez Rangel
+#
+# THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+# IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+# FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+# AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+# LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+# OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+# SOFTWARE.
+#############################################################################
+
 # Manejador en bash para los GPIOs comunes de Galileo Gen.1
 # Usos:
 
@@ -24,6 +37,10 @@ gpio=39
 gpioA=55
 gpioAst=1
 gpioI2C_MUX=0
+
+# utility.sh pinMode A0 analogInput
+# utility.sh analogRead A0
+# utility.sh digitalWrite 2 high
 
 if [ "$3" = "pinMode" ]
   then
