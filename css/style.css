@@ -1,0 +1,37 @@
+.link-without-effect {
+	text-decoration: none;
+}
+.m-sidenav {
+	display: block;
+	border: 1px solid #CCC !important;
+}
+.m-sidenav a {
+	display: block;
+	float: top;
+	margin: 0px;
+	padding: 8px;
+	-webkit-transition: background-color .3s,color .15s,box-shadow .3s,opacity 0.3s;
+	transition: background-color .3s,color .15s,box-shadow .3s,opacity 0.3s;
+	text-decoration: none;
+}
+.m-sidenav a:hover {
+	background-color: #CCC !important;
+}
+.m-dl {
+	display: block;
+	border: 1px solid #CCC !important;
+}
+.m-dl dt {
+	font-weight: bold;
+}
+.m-dl dt.m-no-bold {
+	font-weight: normal;
+}
+.m-dl.m-no-bold dt {
+	font-weight: normal;
+}
+.m-dl dd {
+	padding-left: 32px;
+	margin: 0px;
+	border-bottom: 1px solid #CCC !important;
+}

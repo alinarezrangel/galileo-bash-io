@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8"/>
+		<title>Galileo BASH IO</title>
+		<link rel="stylesheet" href="../../../css/w3.css" type="text/css"/>
+		<link rel="stylesheet" href="../../../css/w3-theme-teal.css" type="text/css"/>
+		<link rel="stylesheet" href="../../../css/style.css" type="text/css"/>
+		<link rel="stylesheet" href="http://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.4.0/css/font-awesome.min.css" type="text/css"/>
+	</head>
+	<body>
+		<header class="w3-container w3-theme w3-padding block header">
+			<h1 class="title w3-padding-16 w3-center w3-animate-top">Galileo BASH IO</h1>
+		</header>
+		<nav class="navigation w3-topnav w3-theme-d1">
+			<a href="../../../index.html">
+				Hogar
+			</a>
+			<a href="../../../about.html">
+				Acerca de
+			</a>
+			<a href="../../../doc.html">
+				Documentación
+			</a>
+			<a href="../../../guide.html">
+				Guias
+			</a>
+		</nav>
+		<div class="w3-main w3-container mainsection w3-white">
+			<div class="grid">
+				<div class="w3-row-padding row">
+					<div class="w3-third col">
+						<nav class="m-sidenav w3-left sidenav" style="width: 100%">
+							<a href="index.html">Inicio</a>
+							<a href="pinMode.html">pinMode.sh</a>
+							<a href="digitalRead.html">digitalRead.sh</a>
+							<a href="digitalWrite.html">digitalWrite.sh</a>
+							<a href="analogRead.html">analogRead.sh</a>
+							<a href="analogWrite.html">analogWrite.sh</a>
+							<a href="undoPinMode.html">undoPinMode.sh</a>
+							<a href="utility.html">utility.sh</a>
+						</nav>
+					</div>
+					<div class="w3-twothird col">
+						<main class="w3-container maincontent">
+							<h2>analogRead</h2>
+							<h3>Uso</h3>
+							<div id="uso" class="w3-code">
+								<code class="bashHigh">
+									analogRead.sh <i>pin</i>
+								</code>
+							</div>
+							<h3>Descripción</h3>
+							<p>
+								Lee un valor analógico.
+							</p>
+							<h3>Argumentos</h3>
+							<dl class="m-dl">
+								<dt>pin</dt>
+								<dd>
+									Pin a leer. Debe haber sido declarado como entrada
+									analógica.
+								</dd>
+							</dl>
+							<h3>Devuelve</h3>
+							<p>
+								Un valor de 12-bits que representa el valor del pin.
+							</p>
+							<h3>Ejemplos</h3>
+							<div class="w3-example">
+								<h4>Leer el valor de un pin</h4>
+								<div class="w3-code">
+									<code class="bashHigh">
+										pinMode.sh A0 analog<br>
+										pinMode.sh A1 analog<br>
+										pinMode.sh A2 analog<br>
+										echo "El pin esta en " $(analogRead.sh A0)<br>
+										echo "El pin esta en " $(analogRead.sh A1)<br>
+										echo "El pin esta en " $(analogRead.sh A2)<br>
+									</code>
+								</div>
+							</div>
+							<h3>Errores</h3>
+							<p>
+								Si el pin no ha sido declarado como entrada analógica, su
+								comportamiento esta indefinido.
+							</p>
+						</main>
+					</div>
+				</div>
+			</div>
+		</div>
+		<footer class="w3-theme footer w3-padding-16">
+			<p>
+				Galileo BASH IO. Sitio provisto por GitHub. Utiliza W3.CSS.
+			</p>
+			<address>
+				Creado por Alejandro Linarez Rangel.<br/>
+				Página principal del proyecto:
+				<a href="http://alinarezrangel.github.io/galileo-bash-io/">
+				alinarezrangel.github.io/galileo-bash-io/</a><br/>
+				Página principal del usuario:
+				<a href="http://alinarezrangel.github.io/">
+				alinarezrangel.github.io/</a><br/>
+			</address>
+		</footer>
+		<script type="text/javascript" src="../../../js/w3codecolors.js">
+		</script>
+		<script type="text/javascript" src="../../../js/pseudod.js">
+		</script>
+		<script type="text/javascript" src="../../../js/bash.js">
+		</script>
+	</body>
+</html>

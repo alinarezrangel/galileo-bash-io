@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8"/>
+		<title>Galileo BASH IO</title>
+		<link rel="stylesheet" href="../../../css/w3.css" type="text/css"/>
+		<link rel="stylesheet" href="../../../css/w3-theme-teal.css" type="text/css"/>
+		<link rel="stylesheet" href="../../../css/style.css" type="text/css"/>
+		<link rel="stylesheet" href="http://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.4.0/css/font-awesome.min.css" type="text/css"/>
+	</head>
+	<body>
+		<header class="w3-container w3-theme w3-padding block header">
+			<h1 class="title w3-padding-16 w3-center w3-animate-top">Galileo BASH IO</h1>
+		</header>
+		<nav class="navigation w3-topnav w3-theme-d1">
+			<a href="../../../index.html">
+				Hogar
+			</a>
+			<a href="../../../about.html">
+				Acerca de
+			</a>
+			<a href="../../../doc.html">
+				Documentación
+			</a>
+			<a href="../../../guide.html">
+				Guias
+			</a>
+		</nav>
+		<div class="w3-main w3-container mainsection w3-white">
+			<div class="grid">
+				<div class="w3-row-padding row">
+					<div class="w3-third col">
+						<nav class="m-sidenav w3-left sidenav" style="width: 100%">
+							<a href="index.html">Inicio</a>
+							<a href="pinMode.html">pinMode.sh</a>
+							<a href="digitalRead.html">digitalRead.sh</a>
+							<a href="digitalWrite.html">digitalWrite.sh</a>
+							<a href="analogRead.html">analogRead.sh</a>
+							<a href="analogWrite.html">analogWrite.sh</a>
+							<a href="undoPinMode.html">undoPinMode.sh</a>
+							<a href="utility.html">utility.sh</a>
+						</nav>
+					</div>
+					<div class="w3-twothird col">
+						<main class="w3-container maincontent">
+							<h2>pinMode</h2>
+							<h3>Uso</h3>
+							<div id="uso" class="w3-code">
+								<code class="bashHigh">
+									pinMode.sh <i>pin</i> <i>modo</i> [<i>tipo</i>|<i>period</i> <i>clase</i>|<i>duty</i>]
+								</code>
+							</div>
+							<h3>Descripción</h3>
+							<p>
+								pinMode fija el modo de un pin para su posterior uso.
+							</p>
+							<h3>Argumentos</h3>
+							<dl class="m-dl">
+								<dt>pin</dt>
+								<dd>
+									Número del pin al cual fijar el modo. Puede ser del 0 al
+									13, o del A0 al A5.
+								</dd>
+								<dt>modo</dt>
+								<dd>
+									Indica el tipo del pin, puede ser
+									<code class="bashHigh">"digital"</code>,
+									<code class="bashHigh">"analog"</code>,
+									<code class="bashHigh">"pwm"</code> o
+									<code class="bashHigh">"serial"</code>
+								</dd>
+								<dt>tipo|period</dt>
+								<dd>
+									Si se declaro digital: si es una entrada o salida (
+									<code class="bashHigh">"in"</code> o
+									<code class="bashHigh">"out"</code>).
+									Si se declaro pwm: es el periodo del PWM en nanosegundos.
+								</dd>
+								<dt>clase|duty</dt>
+								<dd>
+									Si se declaro digital: la clase del pin. Puede ser
+									<code class="bashHigh">"pullup"</code>,
+									<code class="bashHigh">"pulldown"</code> o
+									<code class="bashHigh">"hiz"</code> para entradas y
+									<code class="bashHigh">"strong"</code> para salidas.
+									Si se declaro pwm: es el ciclo (duty cicle) del PWM en nanosegundos.
+								</dd>
+							</dl>
+							<h3>Devuelve</h3>
+							<p>
+								No devuelve nada.
+							</p>
+							<h3>Ejemplos</h3>
+							<div class="w3-example">
+								<h4>Fijar un pin como salida digital</h4>
+								<div class="w3-code">
+									<code class="bashHigh">
+										pinMode.sh "$pin" digital out strong # Fijamos el pin<br>
+										# $pin como salida digital fuerte (tambien puede ser<br>
+										# con pullup o pulldown).<br>
+									</code>
+								</div>
+							</div>
+							<div class="w3-example">
+								<h4>Fijar un pin como entrada digital</h4>
+								<div class="w3-code">
+									<code class="bashHigh">
+										pinMode.sh "$pin" digital in pullup # Fijamos el pin<br>
+										# $pin como entrada digital con pullup<br>
+										pinMode.sh "$pin" digital in pulldown # Fijamos el pin<br>
+										# $pin como entrada digital con pulldown<br>
+										pinMode.sh "$pin" digital in hiz # Fijamos el pin<br>
+										# $pin como entrada digital de alta-impedancia.<br>
+									</code>
+								</div>
+							</div>
+							<div class="w3-example">
+								<h4>Fijar un pin como entrada analógica</h4>
+								<div class="w3-code">
+									<code class="bashHigh">
+										pinMode.sh "$pin" analog # Fijamos el pin<br>
+										# $pin como salida analógica. Solo funciona<br>
+										# con A0-A5<br>
+									</code>
+								</div>
+							</div>
+							<div class="w3-example">
+								<h4>Fijar un pin como salida analógica</h4>
+								<div class="w3-code">
+									<code class="bashHigh">
+										pinMode.sh "$pin" pwm 1000000 500000 # Fijamos el pin<br>
+										# $pin como salida analógica, con un periodo de<br>
+										# 1000000ns (1ms) y un ciclo de 500000ns (0.5ms) lo<br>
+										# cual equivale a 50%. Solo funciona con los<br>
+										# pines PWM<br>
+									</code>
+								</div>
+							</div>
+							<div class="w3-example">
+								<h4>Fijar un pin como entrada/salida serial</h4>
+								<div class="w3-code">
+									<code class="bashHigh">
+										pinMode.sh 0 serial<br>
+										device=$(pinMode.sh 1 serial)<br>
+										# Podemos leer y escribir en device (es el mismo para<br>
+										# leer y para escribir)<br>
+									</code>
+								</div>
+							</div>
+							<h3>Errores</h3>
+							<p>
+								Si se intenta abrir un pin no-analógico como entrada
+								analógica, o un pin no PWM como PWM, su comportamiento esta
+								indefinido.
+							</p>
+							<p>
+								También esta indefinido su comportamiento si faltan
+								parametros.
+							</p>
+						</main>
+					</div>
+				</div>
+			</div>
+		</div>
+		<footer class="w3-theme footer w3-padding-16">
+			<p>
+				Galileo BASH IO. Sitio provisto por GitHub. Utiliza W3.CSS.
+			</p>
+			<address>
+				Creado por Alejandro Linarez Rangel.<br/>
+				Página principal del proyecto:
+				<a href="http://alinarezrangel.github.io/galileo-bash-io/">
+				alinarezrangel.github.io/galileo-bash-io/</a><br/>
+				Página principal del usuario:
+				<a href="http://alinarezrangel.github.io/">
+				alinarezrangel.github.io/</a><br/>
+			</address>
+		</footer>
+		<script type="text/javascript" src="../../../js/w3codecolors.js">
+		</script>
+		<script type="text/javascript" src="../../../js/pseudod.js">
+		</script>
+		<script type="text/javascript" src="../../../js/bash.js">
+		</script>
+	</body>
+</html>
