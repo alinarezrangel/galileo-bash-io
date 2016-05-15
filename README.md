@@ -40,7 +40,7 @@ while true
 	do
 		a=$(analogRead.sh A0)
 		digitalWrite.sh 0 1 # Escribe 1 en el pin 0
-		sleep $(( 1 / a )) # Espera proporcionalmente al valor del pin A0
+		sleep $(bc -l <<< "$a/") # Espera proporcionalmente al valor del pin A0
 		digitalWrite.sh 0 0
 		sleep $(( 1 / a ))
 done
