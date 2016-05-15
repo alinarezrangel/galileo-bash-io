@@ -3,13 +3,13 @@
 	<head>
 		<meta charset="utf-8"/>
 		<title>Galileo BASH IO</title>
-		<link rel="stylesheet" href="http://www.w3schools.com/lib/w3.css" type="text/css"/>
-		<link rel="stylesheet" href="http://www.w3schools.com/lib/w3-theme-teal.css" type="text/css"/>
+		<link rel="stylesheet" href="css/w3.css" type="text/css"/>
+		<link rel="stylesheet" href="css/w3-theme-teal.css" type="text/css"/>
 		<link rel="stylesheet" href="http://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.4.0/css/font-awesome.min.css" type="text/css"/>
 	</head>
 	<body>
 		<header class="w3-container w3-theme w3-padding block header">
-			<h1 class="title w3-padding-16 w3-center">Galileo BASH IO</h1>
+			<h1 class="title w3-padding-16 w3-center w3-animate-top">Galileo BASH IO</h1>
 		</header>
 		<nav class="navigation w3-topnav w3-theme-d1">
 			<a href="index.html">
@@ -25,25 +25,103 @@
 				Guias
 			</a>
 		</nav>
-		<main class="w3-main w3-container maincontent mainsection w3-theme-light">
-			<section class="w3-card-2">
-				<h2>Programa con BASH</h2>
-				<p>
-					La API de BASH IO te permite programar usando BASH o SHELL de una
-					forma facil e intuitiva.
-				</p>
-				<div class="codesample w3-code">
-					<code class="bashHigh">
-						pinMode.sh 0 in pullup<br>
-						pinMode.sh 1 out strong<br>
-						while [ true ]<br>
-						&nbsp;&nbsp;do<br>
-						&nbsp;&nbsp;&nbsp;&nbsp;a=$(digitalRead.sh 0)<br>
-						&nbsp;&nbsp;&nbsp;&nbsp;digitalWrite.sh 1 "$a"<br>
-						done<br>
-					</code>
+		<div class="w3-main w3-container maincontent mainsection w3-white">
+			<span class="w3-xlarge">
+				La interfaz para acceder a las E/S de Intel Galileo Gen 1
+				desde BASH o Shell
+			</span>
+			<div class="grid w3-margin-top">
+				<div class="w3-row-padding row w3-center">
+					<div class="w3-third col">
+						<div class="w3-card-2">
+							<span class="w3-large">Compatible</span>
+							<div class="w3-text-black">
+								<i class="w3-xxxlarge fa fa-terminal"></i>
+							</div>
+							<p>
+								La interfaz esta diseñada totalmente en BASH/Shell y permite
+								un uso sin instalar programas de terceros*.
+							</p>
+						</div>
+					</div>
+					<div class="w3-third col">
+						<div class="w3-card-2">
+							<span class="w3-large">Fácil de usar</span>
+							<div class="w3-text-black">
+								<i class="w3-xxxlarge fa fa-gears"></i>
+							</div>
+							<p>
+								Su sintaxis basada en la interfaz que provee Arduino permite
+								un uso intuitivo.
+							</p>
+						</div>
+					</div>
+					<div class="w3-third col">
+						<div class="w3-card-2">
+							<span class="w3-large">Exportado</span>
+							<div class="w3-text-black">
+								<i class="w3-xxxlarge fa fa-paper-plane"></i>
+							</div>
+							<p>
+								Cualquier programa que poseea una función de llamado del
+								sistema puede hacer uso de esta interfaz.
+							</p>
+						</div>
+					</div>
 				</div>
-			</section>
-		</main>
+			</div>
+			<main class="w3-container maincontent w3-topbar w3-border-teal">
+				<h2>Problemas accediendo a tus E/S?</h2>
+				<p>
+					Galileo BASH IO, es una colección de programas que crean una
+					interfaz intuitiva para poder acceder a los pines E/S de tu placa
+					Intel Galileo Gen 1 desde BASH o Shell, utilizando únicamente las
+					ordenes internas de BASH/Shell y el programa
+					<code class="bashHigh">cat</code>.
+				</p>
+				<div class="w3-example">
+					<h3>Ejemplo</h3>
+					<div class="w3-code">
+						<code class="bashHigh">
+							# El uso es:<br>
+							# &nbsp;pinMode.sh pin modo [tipo modificador]<br>
+							# Los pines son 0-13 y A0-A5.<br>
+							# Los modos son "pwm", "analog", "serial" o "digital"<br>
+							# [tipo] y [modificador] son solo para "digital":<br>
+							# &nbsp;tipo es "in" para entradas y "out" para salidas<br>
+							# &nbsp;modificador es "pullup", "pulldown" o "hiz" para entradas,<br>
+							# &nbsp;&nbsp;&nbsp;y "strong" para salidas.<br>
+							pinMode.sh 0 "serial" # Iniciamos los puertos seriales.<br>
+							device=$(pinMode.sh 1 "serial")<br>
+							# Ahora podemos leer y escribir desde $device (es el mismo para<br>
+							# leer y para escribir).<br>
+							pinMode.sh 2 "digital" "out" "strong" # Salida digital<br>
+							pinMode.sh A0 "analog" # Entrada digital<br>
+							pinMode.sh 3 "pwm" # Salida PWM<br>
+						</code>
+					</div>
+				</div>
+			</main>
+		</div>
+		<footer class="w3-theme footer w3-padding-16">
+			<p>
+				Galileo BASH IO. Sitio provisto por GitHub. Utiliza W3.CSS.
+			</p>
+			<address>
+				Creado por Alejandro Linarez Rangel.<br/>
+				Página principal del proyecto:
+				<a href="http://alinarezrangel.github.io/galileo-bash-io/">
+				alinarezrangel.github.io/galileo-bash-io/</a><br/>
+				Página principal del usuario:
+				<a href="http://alinarezrangel.github.io/">
+				alinarezrangel.github.io/</a><br/>
+			</address>
+		</footer>
+		<script type="text/javascript" src="js/w3codecolors.js">
+		</script>
+		<script type="text/javascript" src="js/pseudod.js">
+		</script>
+		<script type="text/javascript" src="js/bash.js">
+		</script>
 	</body>
 </html>
