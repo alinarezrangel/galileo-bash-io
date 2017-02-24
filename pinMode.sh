@@ -21,6 +21,8 @@ gpio=39
 gpioA=55
 gpioAst=1
 gpioI2C_MUX=0
+mode="$3"
+type="$4"
 
 if [ "$2" != "digital" ]
 	then
@@ -71,8 +73,8 @@ case "$arduino_pin" in
 			gpioAst=""
 			echo -n "3" > /sys/class/pwm/pwmchip0/export
 			echo -n "1" > /sys/class/pwm/pwmchip0/pwm3/enable
-			echo -n "$4" > /sys/class/pwm/pwmchip0/pwm3/period
-			echo -n "$5" > /sys/class/pwm/pwmchip0/pwm3/duty_cycle
+			echo -n "$mode" > /sys/class/pwm/pwmchip0/pwm3/period
+			echo -n "$type" > /sys/class/pwm/pwmchip0/pwm3/duty_cycle
 		fi
 		;;
 	4) #echo "Pin 4 de arduino"
@@ -92,8 +94,8 @@ case "$arduino_pin" in
 			gpioAst=""
 			echo -n "5" > /sys/class/pwm/pwmchip0/export
 			echo -n "1" > /sys/class/pwm/pwmchip0/pwm5/enable
-			echo -n "$4" > /sys/class/pwm/pwmchip0/pwm5/period
-			echo -n "$5" > /sys/class/pwm/pwmchip0/pwm5/duty_cycle
+			echo -n "$mode" > /sys/class/pwm/pwmchip0/pwm5/period
+			echo -n "$type" > /sys/class/pwm/pwmchip0/pwm5/duty_cycle
 		fi
 		;;
 	6) #echo "Pin 6 de arduino"
@@ -108,8 +110,8 @@ case "$arduino_pin" in
 			gpioAst=""
 			echo -n "6" > /sys/class/pwm/pwmchip0/export
 			echo -n "1" > /sys/class/pwm/pwmchip0/pwm6/enable
-			echo -n "$4" > /sys/class/pwm/pwmchip0/pwm6/period
-			echo -n "$5" > /sys/class/pwm/pwmchip0/pwm6/duty_cycle
+			echo -n "$mode" > /sys/class/pwm/pwmchip0/pwm6/period
+			echo -n "$type" > /sys/class/pwm/pwmchip0/pwm6/duty_cycle
 		fi
 		;;
 	7) #echo "Pin 7 de arduino"
@@ -134,8 +136,8 @@ case "$arduino_pin" in
 			gpioAst=""
 			echo -n "1" > /sys/class/pwm/pwmchip0/export
 			echo -n "1" > /sys/class/pwm/pwmchip0/pwm1/enable
-			echo -n "$4" > /sys/class/pwm/pwmchip0/pwm1/period
-			echo -n "$5" > /sys/class/pwm/pwmchip0/pwm1/duty_cycle
+			echo -n "$mode" > /sys/class/pwm/pwmchip0/pwm1/period
+			echo -n "$type" > /sys/class/pwm/pwmchip0/pwm1/duty_cycle
 		fi
 		;;
 	10) #echo "Pin 10 de arduino"
@@ -150,8 +152,8 @@ case "$arduino_pin" in
 			gpioAst=""
 			echo -n "7" > /sys/class/pwm/pwmchip0/export
 			echo -n "1" > /sys/class/pwm/pwmchip0/pwm7/enable
-			echo -n "$4" > /sys/class/pwm/pwmchip0/pwm7/period
-			echo -n "$5" > /sys/class/pwm/pwmchip0/pwm7/duty_cycle
+			echo -n "$mode" > /sys/class/pwm/pwmchip0/pwm7/period
+			echo -n "$type" > /sys/class/pwm/pwmchip0/pwm7/duty_cycle
 		fi
 		;;
 	11) #echo "Pin 11 de arduino"
@@ -166,8 +168,8 @@ case "$arduino_pin" in
 			gpioAst=""
 			echo -n "4" > /sys/class/pwm/pwmchip0/export
 			echo -n "1" > /sys/class/pwm/pwmchip0/pwm4/enable
-			echo -n "$4" > /sys/class/pwm/pwmchip0/pwm4/period
-			echo -n "$5" > /sys/class/pwm/pwmchip0/pwm4/duty_cycle
+			echo -n "$mode" > /sys/class/pwm/pwmchip0/pwm4/period
+			echo -n "$type" > /sys/class/pwm/pwmchip0/pwm4/duty_cycle
 		fi
 		;;
 	12) #echo "Pin 12 de arduino"
@@ -259,8 +261,8 @@ buf="n"
 if [ "$gpio" != "" ] && [ "$gpioA" != "" ] && [ "$gpioAst" != "" ]
 then
 	echo -n "$gpio" > /sys/class/gpio/export
-	echo -n "$4" > "/sys/class/gpio/gpio$gpio/direction"
-	echo -n "$5" > "/sys/class/gpio/gpio$gpio/drive"
+	echo -n "$mode" > "/sys/class/gpio/gpio$gpio/direction"
+	echo -n "$type" > "/sys/class/gpio/gpio$gpio/drive"
 	echo -n "$gpioA" > /sys/class/gpio/export
 	echo -n "out" > "/sys/class/gpio/gpio$gpioA/direction"
 	echo -n "strong" > "/sys/class/gpio/gpio$gpioA/drive"
@@ -278,8 +280,8 @@ fi
 if [ "$gpio" != "" ] && [ "$gpioA" = "" ] && [ "$gpioAst" = "" ] && [ "$buf" = "n" ]
 then
 	echo -n "$gpio" > /sys/class/gpio/export
-	echo -n "$4" > "/sys/class/gpio/gpio$gpio/direction"
-	echo -n "$5" > "/sys/class/gpio/gpio$gpio/drive"
+	echo -n "$mode" > "/sys/class/gpio/gpio$gpio/direction"
+	echo -n "$type" > "/sys/class/gpio/gpio$gpio/drive"
 fi
 if [ "$gpioI2C_MUX" != "" ]
 then
