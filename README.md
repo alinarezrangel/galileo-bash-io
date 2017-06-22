@@ -1,9 +1,9 @@
-# Galileo BASH IO
+# Galileo BASH IO #
 
 Galileo BASH IO es una colección de programas que crean una interfaz sencilla
 entre [BASH](https://www.gnu.org/software/bash/ "BASH") y las entradas y
 salidas de la placa
-[Intel Galileo Gen 1](http://www.intel.com/content/www/us/en/embedded/products/galileo/galileo-g1-datasheet.html "Galileo Gen 1").
+[Intel Galileo Gen 1][1].
 
 El programa principal de la interfaz es `utility.sh`, el cual provee:
 
@@ -19,6 +19,8 @@ Los nombres de los pines son los mismos que en Arduino.
 
 La documentación principal se encuentra en la Wiki proporcionada por GitHub y
 en la [página del proyecto](http://alinarezrangel.github.io/galileo-bash-io/)
+
+Puedes encontrar más documentación en el directorio `docs/`.
 
 ## Ejemplos
 
@@ -46,3 +48,4 @@ while true
 done
 ```
 
+[1]: http://www.intel.com/content/www/us/en/embedded/products/galileo/galileo-g1-datasheet.html

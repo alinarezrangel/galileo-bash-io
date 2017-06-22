@@ -15,17 +15,17 @@ gpioAst=1
 gpioI2C_MUX=0
 
 case $arduino_pin in
-	A0) cat "/sys/bus/iio/devices/iio\:device0/in_voltage0_raw"
+	A0) cat /sys/bus/iio/devices/iio\:device0/in_voltage0_raw
 		;;
-	A1) cat "/sys/bus/iio/devices/iio\:device0/in_voltage1_raw"
+	A1) cat /sys/bus/iio/devices/iio\:device0/in_voltage1_raw
 		;;
-	A2) cat "/sys/bus/iio/devices/iio\:device0/in_voltage2_raw"
+	A2) cat /sys/bus/iio/devices/iio\:device0/in_voltage2_raw
 		;;
-	A3) cat "/sys/bus/iio/devices/iio\:device0/in_voltage3_raw"
+	A3) cat /sys/bus/iio/devices/iio\:device0/in_voltage3_raw
 		;;
-	A4) cat "/sys/bus/iio/devices/iio\:device0/in_voltage4_raw"
+	A4) cat /sys/bus/iio/devices/iio\:device0/in_voltage4_raw
 		;;
-	A5) cat "/sys/bus/iio/devices/iio\:device0/in_voltage5_raw"
+	A5) cat /sys/bus/iio/devices/iio\:device0/in_voltage5_raw
 		;;
 esac
 
